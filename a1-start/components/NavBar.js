@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import ThemeSwitch from './ThemeSwitch'
 
 export default function Navbar() {
   return (
@@ -16,9 +17,14 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
+        <ThemeSwitch />
       </nav>
       <style jsx>
         {`
+          nav {
+            display: flex;
+            justify-content: space-between;
+          }
           ul {
             list-style-type: none;
             padding: 0;

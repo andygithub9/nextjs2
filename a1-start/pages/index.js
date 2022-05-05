@@ -11,7 +11,7 @@ export async function getStaticProps() {
 
 // props 接收 getStaticProps 傳遞過來的值
 export default function Home({ posts }) {
-  console.log('[Home] render: ', posts)
+  // console.log('[Home] render: ', posts)
   return (
     <>
       <Head>
