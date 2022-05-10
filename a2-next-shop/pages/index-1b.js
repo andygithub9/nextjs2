@@ -5,7 +5,6 @@
 // 則 next.js 會自動執行 getStaticProps 獲取新的數據。
 // 這樣做的好處是頁面依然是靜態 HTML ，但也會定期重新生成新的 HTML。
 import Head from 'next/head'
-import Link from 'next/link'
 import Title from '../components/Title'
 import { getProducts } from '../lib/products'
 
@@ -27,11 +26,7 @@ export default function Home({ products }) {
         <Title>Next Shop</Title>
         <ul>
           {products.map((product) => (
-            <li key={product.id}>
-              <Link href={`/products/${product.id}`}>
-                <a>{product.title}</a>
-              </Link>
-            </li>
+            <li key={product.id}>{product.title}</li>
           ))}
         </ul>
       </main>
