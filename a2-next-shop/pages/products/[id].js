@@ -25,12 +25,16 @@ export async function getStaticProps({ params: { id } }) {
       revalidate: 15,
     }
   } catch (error) {
-    // 如果 id 找不到就捕獲 getProduct 拋出的錯誤，並返回 404 頁面
-    // notFound 是特殊的 flag 會將頁面導向 404 頁面
     console.error('error.status: ', error.status)
+
+    // 如果 id 找不到就捕獲 getProduct 拋出的錯誤
+    // 如果 error.status 是 404 則將頁面導向 404 頁面
+    // notFound 是特殊的 flag 會將頁面導向 404 頁面
     if (error instanceof ApiError && error.status === 404) {
       return { notFound: true }
     }
+
+    // 如果不是 404 錯誤則直接拋出錯誤
     throw error
   }
 }
