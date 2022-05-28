@@ -4,7 +4,7 @@ const { CMS_URL } = process.env
 
 export async function getProduct(id) {
   const product = await fetchJson(`${CMS_URL}/products/${id}`)
-  return product
+  return strapiProduct(product)
 }
 
 export async function getProducts() {

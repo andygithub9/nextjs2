@@ -12,7 +12,7 @@ export default function Home() {
   console.log(setProducts)
   useEffect(() => {
     // useEffect 中不能用 async function 作為回調函數，所以改用異步的 IIFE
-    ;(async () => {
+    ; (async () => {
       const response = await fetch('/api/products')
       const products = await response.json(response)
       setProducts(products)

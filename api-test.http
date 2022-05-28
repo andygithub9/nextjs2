@@ -1,1 +1,45 @@
 GET http://localhost:1337/products/1
+
+###
+
+GET http://localhost:1337/cart-items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUyODg1MDk2LCJleHAiOjE2NTU0NzcwOTZ9.QOF-HO8eV8NJaHFr2DLxWGs45u9oxgjUwlEuFo5e9AU
+
+###
+
+# login api 會返回 jwt token
+POST http://localhost:1337/auth/local
+Content-Type: application/json
+
+{
+    "identifier": "alice@example.com",
+    "password": "Alice123"
+}
+
+###
+
+GET http://localhost:1337/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjUyODg1MDU1LCJleHAiOjE2NTU0NzcwNTV9.FCCq4cr-i99hjdqa0WY0idojdj0duJv68rJ-XbfgGe8
+
+###
+
+# 註冊新用戶
+POST http://localhost:1337/auth/local/register
+Content-Type: application/json
+
+{
+    "username": "Charlie",
+    "email": "charlie@example.com",
+    "password": "Charlie123"
+}
+
+###
+
+# 測試 next.js api
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+    "email": "alice@example.com",
+    "password": "Alice123"
+}

@@ -1,3 +1,4 @@
+// https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Error#custom_error_types？
 // 自定義 Error 接收 url, status 參數
 export function ApiError(url, status) {
   this.name = 'ApiError'
@@ -8,8 +9,9 @@ export function ApiError(url, status) {
 ApiError.prototype = Object.create(Error.prototype)
 ApiError.prototype.constructor = ApiError
 
-export async function fetchJson(url) {
-  const response = await fetch(url)
+export async function fetchJson(url, options) {
+  const response = await fetch(url, options)
+
   // getProduct(id) 如果 fetch 的 id 不存在則不會返回 JSON 而是純文本的 404 錯誤
   // 所以這邊要做拋出錯誤，否則會報 JSON 解析錯誤，而不是找不到頁面 404 錯誤
   // 如果 response.ok 為 false 則拋出自定義錯誤 ApiError，並傳入 url, response.status 兩個參數
